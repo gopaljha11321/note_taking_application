@@ -25,3 +25,7 @@ class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
         fields = ['id','title', 'content']
+
+class NoteUpdateSerializer(serializers.Serializer):
+    title = serializers.CharField(max_length=100, required=False)
+    content = serializers.CharField(max_length=1000, required=False)
