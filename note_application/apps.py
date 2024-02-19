@@ -1,6 +1,5 @@
 from django.apps import AppConfig
 
-
 class NoteApplicationConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'note_application'

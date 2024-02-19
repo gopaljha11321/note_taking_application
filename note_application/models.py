@@ -15,7 +15,7 @@ class NoteUpdateAttempt(models.Model):
     id = models.AutoField(primary_key=True) 
     title = models.CharField(max_length=100)
     content = models.TextField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # ForeignKey relationship with the User model
     note_id = models.IntegerField()
     timestamp = models.DateTimeField(auto_now_add=True)
 

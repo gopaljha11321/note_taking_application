@@ -63,7 +63,6 @@ def create_note(request):
             title=request.data.get('title'),
             content=request.data.get('content'),
             )
-            # print(response.id,"response")
             return Response({'message': 'Note created successfully'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
@@ -93,7 +92,6 @@ def share_note(request):
         shares = []
         for username in users:
             user = User.objects.filter(username=username).first()
-    
             if user is None:
                 return Response({'message': f'User {username} does not exist.'}, status=status.HTTP_400_BAD_REQUEST)
             share = Share(note_id=note_id, user_id=user)
@@ -130,7 +128,6 @@ def update_note(request, id):
             title=title,
             content=content
         )
-        
         return Response({'message': 'Note updated successfully'}, status=status.HTTP_200_OK)
     else:
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
